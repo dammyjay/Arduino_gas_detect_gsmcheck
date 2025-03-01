@@ -26,6 +26,8 @@ void setup() {
     digitalWrite(GREEN_LED, HIGH);  // Normal state
 
     lcd.setCursor(0, 0);
+    lcd.print("Gas leak Detector");
+    lcd.setCursor(0, 1);
     lcd.print("Initializing...");
     delay(2000);
 
