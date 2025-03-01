@@ -2,7 +2,7 @@
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
 
-#define MQ2_PIN A0  // Gas sensor analog pin
+#define MQ2_PIN A1  // Gas sensor analog pin
 #define BUZZER_PIN 6
 #define RED_LED 7
 #define GREEN_LED 8
@@ -10,7 +10,7 @@
 SoftwareSerial gsm(9, 10);  // GSM TX to Arduino RX (Pin 9), GSM RX to Arduino TX (Pin 10)
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD I2C address (0x27 or 0x3F, check yours)
 
-const int gasThreshold = 210;  // Adjust threshold based on environment
+const int gasThreshold = 150;  // Adjust threshold based on environment
 
 void setup() {
     Serial.begin(9600);
@@ -26,7 +26,7 @@ void setup() {
     digitalWrite(GREEN_LED, HIGH);  // Normal state
 
     lcd.setCursor(0, 0);
-    lcd.print("Gas leak Detector");
+    lcd.print("Gas leak Detector"); // lcd printing name of project
     lcd.setCursor(0, 1);
     lcd.print("Initializing...");
     delay(2000);
